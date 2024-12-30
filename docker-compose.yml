@@ -1,0 +1,12 @@
+services: 
+  jupyter:
+    build: .
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/app
+    environment:
+      - JUPYTER_TOKEN=my-token
+    env_file:
+      - .env
+    command: jupyter lab --allow-root -y --no-browser --ip 0.0.0.0
